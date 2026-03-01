@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Google</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Logo fake estilo Google */
+        .logo {
+            font-size: 64px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Caixa de busca */
+        .search-box {
+            display: flex;
+            width: 50%;
+            max-width: 600px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 18px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px 0 0 24px;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            border: 1px solid #dfe1e5;
+            border-left: 0;
+            background-color: #f8f9fa;
+            border-radius: 0 24px 24px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .search-box button:hover {
+            background-color: #f1f3f4;
+        }
+
+        /* Responsivo */
+        @media(max-width: 700px){
+            .search-box {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo estilo Google -->
+    <div class="logo">Meu Google</div>
+
+    <!-- Caixa de busca -->
+    <form class="search-box" onsubmit="searchGoogle(event)">
+        <input type="text" id="searchInput" placeholder="Pesquisar no Meu Google...">
+        <button type="submit">🔍</button>
+    </form>
+
+    <script>
+        // Função para redirecionar para Google real (ou manter no site depois)
+        function searchGoogle(event) {
+            event.preventDefault(); // Evita refresh
+            const query = document.getElementById('searchInput').value;
+            if(query) {
+                // Abre resultado no Google de verdade
+                window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+            }
+        }
+    </script>
+
+</body>
+</html>
